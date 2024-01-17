@@ -1,0 +1,11 @@
+.grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  gap: 20px;
+
+  height: 852px;
+  overflow: hidden;
+}
