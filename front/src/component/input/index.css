@@ -1,0 +1,21 @@
+.main_input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  position: relative;
+}
+.input_text {
+  font-size: 14px;
+}
+.input {
+  border: 1px solid #775ce5;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 14px;
+}
+.img_show {
+  position: absolute;
+  top: calc(80% - 23px);
+  left: calc(95% - 23px);
+}

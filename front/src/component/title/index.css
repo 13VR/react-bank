@@ -4,12 +4,19 @@
   align-items: center;
   gap: 20px;
 }
-.header_welcom {
+.header_welcome {
   color: white;
 }
-.title {
+.welcome_title {
   font-size: 42px;
 }
-.description {
+.title {
+  font-weight: 500;
+  font-size: 24px;
+}
+.welcome_description {
   font-size: 20px;
+}
+.description {
+  font-size: 14px;
 }
