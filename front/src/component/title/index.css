@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
 }
 .header_welcome {
   color: white;
@@ -19,4 +19,5 @@
 }
 .description {
   font-size: 14px;
+  color: #939199;
 }

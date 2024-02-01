@@ -8,23 +8,22 @@ import Arrow from "../../component/back-button";
 import Input from "../../component/input";
 import Link from "../../component/link";
 
-export default function SignIn() {
+export default function Recovery() {
   return (
     <Grid>
       <StatusBar />
       <Arrow />
       <div className="custom_page">
         <header className="custom_header">
-          <Title title={"Sign In!"} description={"Select login method"} />
+          <Title
+            title={"Recover password"}
+            description={"Choose a recovery method"}
+          />
           <Input title={"Email"} text={"Email"} type={"email"} />
-          <Input show title={"Password"} text={"Password"} type={"password"} />
-          <span className="info">
-            Forgot your password? <a href="/recovery">Restore</a>
-          </span>
         </header>
 
         <Button>
-          <Link text={"Continue"} />
+          <Link text={"Send code"} link={"../recovery-confirm"} />
         </Button>
       </div>
     </Grid>

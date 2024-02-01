@@ -8,18 +8,21 @@ import Arrow from "../../component/back-button";
 import Input from "../../component/input";
 import Link from "../../component/link";
 
-export default function SignIn() {
+export default function SignUp() {
   return (
     <Grid>
       <StatusBar />
       <Arrow />
       <div className="custom_page">
         <header className="custom_header">
-          <Title title={"Sign In!"} description={"Select login method"} />
+          <Title
+            title={"Sign Up!"}
+            description={"Choose a registration method"}
+          />
           <Input title={"Email"} text={"Email"} type={"email"} />
           <Input show title={"Password"} text={"Password"} type={"password"} />
           <span className="info">
-            Forgot your password? <a href="/recovery">Restore</a>
+            Already have an account? <a href="/signin">Sign In</a>
           </span>
         </header>
 

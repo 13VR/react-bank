@@ -7,6 +7,7 @@ import StatusBar from "../../component/status-bar";
 import LinkTo from "../../component/link";
 
 export default function WelcomePage() {
+  
   return (
     <div className="welcome_page">
       <header className="welcom_header">
@@ -15,10 +16,10 @@ export default function WelcomePage() {
         <img className="img" src={logo} alt="logo" />
       </header>
       <div className="buttons">
-        <Button>
+        <Button welcome>
           <LinkTo text={"Sign Up"} link={"../signup"} />
         </Button>
-        <Button notprimary>
+        <Button notprimary welcome>
           <LinkTo text={"Sign In"} link={"../signin"} />
         </Button>
       </div>

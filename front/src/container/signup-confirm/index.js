@@ -8,23 +8,22 @@ import Arrow from "../../component/back-button";
 import Input from "../../component/input";
 import Link from "../../component/link";
 
-export default function SignIn() {
+export default function SignUpConfirm() {
   return (
     <Grid>
       <StatusBar />
       <Arrow />
       <div className="custom_page">
         <header className="custom_header">
-          <Title title={"Sign In!"} description={"Select login method"} />
-          <Input title={"Email"} text={"Email"} type={"email"} />
-          <Input show title={"Password"} text={"Password"} type={"password"} />
-          <span className="info">
-            Forgot your password? <a href="/recovery">Restore</a>
-          </span>
+          <Title
+            title={"Confirm account!"}
+            description={"Write the code you received"}
+          />
+          <Input title={"Code"} text={"Code"} type={"number"} />
         </header>
 
         <Button>
-          <Link text={"Continue"} />
+          <Link text={"Confirm"} />
         </Button>
       </div>
     </Grid>

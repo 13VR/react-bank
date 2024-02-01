@@ -1,18 +1,46 @@
 import "./index.css";
-import imgshow from "./show.svg";
-import imgunshow from "./unshow.svg";
 
-export default function Input({ title, text, type, show }) {
+import { useState } from "react";
+
+export default function Input({ title, text, type, pass, onChange }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const [value, setValue] = useState("");
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+  console.log(value);
+  const handleChange = (e) => setValue(e.target.value);
+
   return (
-    <div className="main_input">
-      <span className="input_text">{title}</span>
-      <input className="input" placeholder={text} type={type}></input>
-      {show ? (
-        <div className="img_show">
-          <img src={imgunshow} alt="show" />
+    <div className="field">
+      <label className="field_label">{title}</label>
+      {pass ? (
+        <div className="field_wrapper">
+          <input
+            onChange={handleChange}
+            className="field_input validation"
+            value={value}
+            placeholder={text}
+            type={isVisible ? "text" : "password"}
+          ></input>
+          <span
+            onClick={toggleVisibility}
+            className={`field_icon ${
+              isVisible ? "field_icon--eyehide" : "field_icon--eye"
+            }`}
+          ></span>
         </div>
       ) : (
-        ""
+        <div className="field_wrapper">
+          <input
+            onChange={handleChange}
+            className="field_input validation"
+            value={value}
+            placeholder={text}
+            type={type}
+          ></input>
+        </div>
       )}
     </div>
   );
