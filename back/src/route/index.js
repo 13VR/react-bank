@@ -4,10 +4,11 @@ const router = express.Router()
 
 // Підключіть файли роутів
 // const test = require('./test')
+const user = require('./user')
 // Підключіть інші файли роутів, якщо є
-
 // Об'єднайте файли роутів за потреби
 // router.use('/', test)
+router.use('/signup', user)
 // Використовуйте інші файли роутів, якщо є
 
 router.get('/', (req, res) => {
