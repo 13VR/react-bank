@@ -1,12 +1,15 @@
 import "./index.css";
+import { useState } from "react";
 
 export default function StatusBar({ welcome }) {
-  const currentDate = new Date();
+  const [time, setTime] = useState(new Date());
+  setInterval(() => setTime(new Date()), 10000);
 
   return (
     <div className="status_bar">
       <div className={`${welcome ? "time" : ""}`}>
-        {currentDate.getHours()}:{currentDate.getMinutes()}
+        {time.getHours().toString().padStart(2, "0")}:
+        {time.getMinutes().toString().padStart(2, "0")}
       </div>
 
       <div className="bar">

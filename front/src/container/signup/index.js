@@ -5,51 +5,41 @@ import Title from "../../component/title";
 import StatusBar from "../../component/status-bar";
 import Grid from "../../component/grid";
 import Arrow from "../../component/back-button";
+import Field from "../../component/field";
 import Input from "../../component/input";
 import Link from "../../component/link";
 
 import { Alert, Loader, LOAD_STATUS } from "../../component/load";
 
-export default function SignUp(onCreate, id, onSubmit) {
-  const [value, setValue] = useState("");
-  console.log(value);
-  const handleChange = (e) => setValue(e.target.value);
+export default function SignUp(onSubmit) {
+  const [value, setValue] = useState({ email: "", password: "" });
+  const [email, setEmail] = useState("");
 
-  // const [status, setStatus] = useState(null);
-  // const [message, setMessage] = useState("");
-  // const handleSubmit = (value) => {
-  //   return sendData({ value });
-  // };
+  // const handleChange = (e) => setValue(e.target.value);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+  // function handleChange(e) {
+  //   if (setValue.email === "email") setValue.email(e.target.value);
+  //   if (setValue.password === "password") setValue.password(e.target.value);
 
-  // const sendData = async (dataToSend) => {
-  //   setStatus(LOAD_STATUS.PROGRESS);
-  //   try {
-  //     const res = await fetch("http://localhost:4000/signup", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: convertData(dataToSend),
-  //     });
-  //     const data = await res.json();
-  //     if (res.ok) {
-  //       setStatus(null);
-  //       if (onCreate) onCreate();
-  //     } else {
-  //       setMessage(data.message);
-  //       setStatus(LOAD_STATUS.ERROR);
-  //     }
-  //   } catch (error) {
-  //     setMessage(error.message);
-  //     setStatus(LOAD_STATUS.ERROR);
-  //   }
-  // };
-  // const convertData = ({ value }) =>
-  //   JSON.stringify({
-  //     email: value,
+  //   // setValue({
+  //   //   email: e.target.value,
+  //   //   password: e.target.value,
+  //   // });
+  // }
+  const handleSubmit = () => {
+    if (email.length === 0) return null;
 
-  //     userId: id,
-  //   });
+    if (onSubmit) {
+      onSubmit(email);
+    } else {
+      throw new Error("onSubmit props is undefined");
+    }
+
+    setValue("");
+  };
+  const isDisabled = email.length === 0;
 
   return (
     <Grid>
@@ -61,10 +51,19 @@ export default function SignUp(onCreate, id, onSubmit) {
             title={"Sign Up!"}
             description={"Choose a registration method"}
           />
-          <Input title={"Email"} text={"Email"} type={"email"} />
+          <Input
+            id="email"
+            onChange={handleEmailChange}
+            value={email}
+            title={"Email"}
+            text={"Email"}
+            type={"email"}
+          />
           <Input
             pass
+            id="password"
             // onChange={handleChange}
+            value={value.password}
             title={"Password"}
             text={"Password"}
             type={"password"}
@@ -73,12 +72,10 @@ export default function SignUp(onCreate, id, onSubmit) {
             Already have an account? <a href="/signin">Sign In</a>
           </span>
         </header>
-
-        <Button
-        // onClick={handleSubmit}
-        >
+        <Button onClick={handleSubmit} disabled={isDisabled}>
           <Link text={"Continue"} link={"../signup-confirm"} />
         </Button>
+        <pre>email: {email}</pre>
       </div>
     </Grid>
   );

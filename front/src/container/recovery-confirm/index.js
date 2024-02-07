@@ -21,7 +21,7 @@ export default function RecoveryConfirm() {
           />
           <Input title={"Code"} text={"Code"} type={"number"} />
           <Input
-            show
+            pass
             title={"New password"}
             text={"Password"}
             type={"password"}

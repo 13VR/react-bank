@@ -28,3 +28,6 @@ button:hover {
   background-color: white;
   color: #775ce5;
 }
+.button:disabled {
+  cursor: not-allowedw;
+}
