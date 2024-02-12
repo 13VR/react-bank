@@ -2,11 +2,11 @@ import "./index.css";
 
 import Button from "../../component/button";
 import Title from "../../component/title";
-import StatusBar from "../../component/status-bar";
+
 import Grid from "../../component/grid";
 import Arrow from "../../component/back-button";
 import Input from "../../component/input";
-import Link from "../../component/link";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 export default function Recovery(onSubmit) {
@@ -27,7 +27,6 @@ export default function Recovery(onSubmit) {
   const isDisabled = value.length === 0;
   return (
     <Grid>
-      <StatusBar />
       <Arrow />
       <div className="custom_page">
         <header className="custom_header">
@@ -44,7 +43,9 @@ export default function Recovery(onSubmit) {
         </header>
 
         <Button disabled={isDisabled} onClick={handleSubmit}>
-          <Link text={"Send code"} link={"../recovery-confirm"} />
+          <NavLink className={"button_text"} to={"/balance"}>
+            Restore Password
+          </NavLink>
         </Button>
       </div>
     </Grid>

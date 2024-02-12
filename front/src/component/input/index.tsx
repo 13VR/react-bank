@@ -2,25 +2,37 @@ import "./index.css";
 
 import { useState } from "react";
 
-export default function Input({
+type InputProps = {
+  title: string;
+  text: string;
+  type: string;
+  status?: string;
+  id: string;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  pass?: boolean;
+  children?: React.ReactNode;
+  value: string;
+};
+
+const Input: React.FC<InputProps> = ({
   title,
   text,
   type,
-
+  id,
   status = "default",
   children,
+  value,
   onChange,
   pass,
-  value,
-}) {
-  const [isVisible, setIsVisible] = useState(false);
+}) => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
 
   return (
-    <div className="field">
+    <div id={id} className="field">
       <label className={`field_label field_label--${status}`}>{title}</label>
       {pass ? (
         <div className="field_wrapper">
@@ -53,4 +65,6 @@ export default function Input({
       )}
     </div>
   );
-}
+};
+
+export default Input;

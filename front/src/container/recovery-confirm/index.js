@@ -2,16 +2,16 @@ import "./index.css";
 
 import Button from "../../component/button";
 import Title from "../../component/title";
-import StatusBar from "../../component/status-bar";
+
 import Grid from "../../component/grid";
 import Arrow from "../../component/back-button";
 import Input from "../../component/input";
-import Link from "../../component/link";
+
+import { NavLink } from "react-router-dom";
 
 export default function RecoveryConfirm() {
   return (
     <Grid>
-      <StatusBar />
       <Arrow />
       <div className="custom_page">
         <header className="custom_header">
@@ -29,7 +29,9 @@ export default function RecoveryConfirm() {
         </header>
 
         <Button>
-          <Link text={"Send code"} />
+          <NavLink className={"button_text"} to={"/balance"}>
+            Restore Password
+          </NavLink>
         </Button>
       </div>
     </Grid>
